@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://dfc-bas:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='XQC_TRUSTED_110')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZQM_NCRETRIEVE_QUERY_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZQM_NCRETRIEVE_queryType" sap:label="Consumption view for NC retrieve" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Notification"/>
+                </Key>
+                <Property Name="Notification" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Notification Number"/>
+                <Property Name="material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material"/>
+                <Property Name="supercedes_NC" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Supercedes NC"/>
+                <Property Name="superceded_by" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Superceded By"/>
+                <Property Name="reference_nc" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Reference NC"/>
+                <Property Name="material_doc" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Material Document"/>
+                <Property Name="matdocitem" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Material doc. item"/>
+                <Property Name="matdocyear" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Material document Year"/>
+                <Property Name="workorder" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Work Order"/>
+                <Property Name="manufacturerpart" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Vendor Material"/>
+                <Property Name="material_desc" Type="Edm.String" MaxLength="40" sap:label="Material Description"/>
+                <Property Name="plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Plant"/>
+                <Property Name="vendorname" Type="Edm.String" MaxLength="35" sap:label="Vendor Name"/>
+                <Property Name="product" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Product"/>
+                <Property Name="prelimpart_eff" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Preliminary Part Eff."/>
+                <Property Name="binloacation" Type="Edm.String" MaxLength="40" sap:label="Bin Location"/>
+                <Property Name="purchasedoc" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Order"/>
+                <Property Name="purchaseitem" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative" sap:label="Purchase Item"/>
+                <Property Name="existing_ats" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Existing ATS"/>
+                <Property Name="droppoint" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Drop Point"/>
+                <Property Name="workinstruction" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Work Instructions"/>
+                <Property Name="mrpcontroller" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="MRP Controller"/>
+                <Property Name="nctype" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="NC Type"/>
+                <Property Name="priority" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Priority"/>
+                <Property Name="createdby" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Created By"/>
+                <Property Name="aircraft" Type="Edm.String" MaxLength="7" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Aircraft"/>
+                <Property Name="nccaused_wcenter" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:required-in-filter="true" sap:label="NC Caused Workcenter"/>
+                <Property Name="ncdetect_wcenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="NC Detected Workcenter"/>
+                <Property Name="supplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Supplier"/>
+            </EntityType>
+            <EntityContainer Name="ZQM_NCRETRIEVE_QUERY_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZQM_NCRETRIEVE_query" EntityType="ZQM_NCRETRIEVE_QUERY_CDS.ZQM_NCRETRIEVE_queryType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:requires-filter="true" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://dfc-bas:443/sap/opu/odata/sap/ZQM_NCRETRIEVE_QUERY_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://dfc-bas:443/sap/opu/odata/sap/ZQM_NCRETRIEVE_QUERY_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
