@@ -107,7 +107,6 @@
                     "defaultBindingMode": "TwoWay",
                     "defaultCountMode": "Inline",
                     "refreshAfterChange": false
-                   
                 }
             },
             "@i18n": {
@@ -122,6 +121,15 @@
             "config": {},
             "routes": [],
             "targets": {}
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "controllerName": "com.airbus.zncretreivelist.ext.controller.ListReportExt"
+                    }
+                }
+            }
         }
     },
     "sap.ui.generic.app": {
@@ -149,7 +157,6 @@
                         }
                     }
                 }
-               
             }
         }
     },
